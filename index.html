@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atlas Atômico</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+<div class="wrap">
+  <header class="top">
+    <h1>Atlas Atômico</h1>
+    <p class="lede">Digite um elemento (H, Fe, ouro) ou uma fórmula (H2O, Ca(OH)2, C6H12O6). A página mostra as propriedades e um modelo 3D que você pode girar.</p>
+    <form id="form" class="search" autocomplete="off">
+      <label for="q" class="sr">Elemento ou fórmula</label>
+      <input id="q" type="text" value="H2O" spellcheck="false" autocapitalize="off" autocorrect="off" placeholder="H, O2, H2O, NaCl...">
+      <button class="btn-main" type="submit">Mostrar</button>
+    </form>
+    <div class="chips" id="examples"></div>
+    <p class="hint" id="hint" hidden></p>
+  </header>
+
+  <main class="grid" id="result">
+    <section class="stage-col">
+      <div class="stage" id="stage">
+        <canvas id="gl" aria-label="Modelo 3D. Arraste para girar."></canvas>
+        <div class="stage-tag" id="stageTag"></div>
+        <div class="stage-ctl">
+          <button type="button" id="btnSpin" aria-pressed="true">Girar</button>
+          <button type="button" id="btnReset">Reiniciar vista</button>
+        </div>
+        <div class="stage-hint">Arraste para girar. Role ou use dois dedos para ampliar.</div>
+        <div class="stage-msg" id="stageMsg" hidden></div>
+      </div>
+      <div class="legend" id="legend"></div>
+      <p class="note" id="note"></p>
+    </section>
+    <section class="card" id="info" aria-live="polite"></section>
+  </main>
+
+  <section class="ptable">
+    <h2>Tabela periódica</h2>
+    <div class="cats" id="cats"></div>
+    <div class="pscroll"><div class="pgrid" id="pgrid"></div></div>
+  </section>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
